@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>JAVA-SCRİPT</title>
     <style>
         .text-primary{
@@ -12,37 +13,89 @@
     </style>
 </head>
 <body>
-    
-
-    <div id=""><h1 id="title">merhaba dünya</h1></div>
-
-    
-    <ul id="list">
-        <li id="aa">
-            <a href="#" id="kodluyoruzLink">link bilgisi</a>
-        </li>
-        <li id="ab">
-            <a href="" id="greeting"></a>
-        </li>
-    </ul>
-
-    <h2>Promp ile girilen isim</h2>
-    <h1 id="sonuc"></h1>
-
-    <h1 id="class-bilgi"> class-bilgi</h1>
-
-    <ul id="liste">
-        <li>Lorem.</li>
-        <li>Aliquam!</li>
-        <li>Asperiores!</li>
-    </ul>
-    
-
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-5">
+                <div id=""><h1 id="title">merhaba dünya</h1></div>
 
     
+                <ul class="mt-5" id="list " style="list-style-type: none;">
+                    <li id="aa">
+                        <a href="#" id="kodluyoruzLink">link bilgisi</a>
+                    </li>
+                    <li id="ab" >
+                        <a href="" id="greeting"></a>
+                    </li>
+                </ul>
+            
+                <h2>Promp ile girilen isim</h2>
+                <h1 class="mt-5" id="sonuc"></h1>
+            
+                <h1 class="mt-5" id="class-bilgi"> class-bilgi</h1>
+            
+                <ul class="mt-5" id="liste" style="list-style-type: none;">
+                    <li>Lorem.</li>
+                    <li>Aliquam!</li>
+                    <li>Asperiores!</li>
+                </ul>
 
-   
-    <script src="js/11-liste-icine-erismek.js"></script>
-    <script src="js/12-class-bilgisi-degis.js"></script>
+                <form class="text-left" id="userForm1" >
+                    <div class="form-group">
+                      <label >Number</label>
+                      <input name="sayi"  class="form-control" id="sayi" >
+                    </div>                  
+                    <button type="submit" class="btn btn-success" id="submit">GÖNDER</button>
+                </form>
+
+
+
+<div id="alert"></div>
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-2">
+                            
+                            <form id="userForm2">
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" for="username">Kullanici Adi</label>
+                                    <input class="form-control" type="text" name="username" id="username">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="score">Not Bilgisi</label>
+                                    <input class="form-control" type="number" name="score" id="score">
+                                </div>
+                                <div class="mb-3">
+                                    <button type="reset" class="btn btn-danger">Sifirla</button>
+                                    <button type="submit" class="btn btn-success">Gonder</button>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="col-sm-8 offset-sm-2 mt-4">
+
+                            <ul class="list-group" id="userList" style="list-style-type: none;">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    LİSTELER BURADA GÖRÜNECEK
+                                    <span class="badge badge-primary badge-pill">?</span>
+                                  </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+    </div>
+
+  
+
+    
+
+    <script src="js/26-form-bölüm-sonu.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
 </html>
