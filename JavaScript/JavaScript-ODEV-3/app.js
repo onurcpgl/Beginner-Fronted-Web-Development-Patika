@@ -84,139 +84,84 @@ const menu = [
 
 
 
-let allDOM=document.querySelector('#All')
-let itemDOM=document.querySelector('#item')
 
+let itemDOM=document.querySelector(".section-center");
+  
 
-function itemSil()
-{
-  for(let i=1;i<menu.length+1;i++)
-  {
-    let itemSil=document.querySelector('.menu-items')
-    itemSil.remove()
-  }
-}
-
-
-function AllItem()
-{
-  if(document.querySelector('.menu-items'))
-  {
-    itemSil()
-  }
-   for(let i=0;i<menu.length;i++)
-   {
-    let divDOM=document.createElement('div')
-    divDOM.className="menu-items col-lg-6 col-sm-12"
-    divDOM.innerHTML=`
-      <img src="${menu[i].img}" alt="Chicken" ramen="" class="photo">
-      <div class="menu-info" >
+const createFoods = (food) => {
+  let html = `
+    <div class="menu-items col-lg-6 col-sm-12">
+      <img class="photo" src="${food.img}" alt="${food.title}">
+      <div class="menu-info">
         <div class="menu-title">
-          <h4>Chicken Ramen</h4>
-          <h4 class="price">7.99</h4>
+          <h4>${food.title}</h4>
+          <h4 class="price">${food.price}</h4>
         </div>
-        <div class="menu-text">
-          Chicken noodle soup, serving with vegetables such as soy bean, green onion. In an optional you can ask for egg. 
-        </div>
+        <div class="menu-text">${food.desc}</div>
       </div>
-    `
-    itemDOM.append(divDOM)
-   }
-  
+    </div>  
+  `
+  return html;
 }
 
 
-function KoreItem()
-{ 
-  
-  if(document.querySelector('.menu-items'))
-  {
-    itemSil()
-  }
-  
-  for(let j=0;j<menu.length;j++)
-  {
-    let divDOM=document.createElement('div')
-    if(menu[j].category == "Korea")
-    {
-       divDOM.className="menu-items col-lg-6 col-sm-12"
-       divDOM.innerHTML=`
-        <img src="${menu[j].img}" alt="Chicken" ramen="" class="photo">
-        <div class="menu-info" >
-          <div class="menu-title">
-            <h4>${menu[j].title}</h4>
-            <h4 class="price">${menu[j].price}</h4>
-          </div>
-          <div class="menu-text">
-          ${menu[j].desc} 
-          </div>
-        </div>
-      `
+//All foods
+const allitem =()=>{
+  let allFood=""
+
+  menu.map(item =>{
+    allFood+=createFoods(item)
+  })
+  itemDOM.innerHTML=allFood
+}
+
+//Just korea food
+const koreaFoods = () => {
+  let koreaFoods="";
+
+  menu.map(item => {
+    if(item.category === "Korea"){
+      koreaFoods += createFoods(item)
     }
-    itemDOM.append(divDOM)
-  }
-  
+  })
+  itemDOM.innerHTML = koreaFoods;
 }
 
-function JapanItem()
-{
-  if(document.querySelector('.menu-items'))
-  {
-    itemSil()
-  }
-  
-    for(let j=0;j<menu.length;j++)
+const chinaFoods = () =>{
+  let chinaFoods=""
+
+  menu.map(item =>{
+    if(item.category === "China")
     {
-      let divDOM=document.createElement('div')
-      if(menu[j].category == "Japan")
-      {
-        divDOM.className="menu-items col-lg-6 col-sm-12"
-        divDOM.innerHTML=`
-          <img src="${menu[j].img}" alt="Chicken" ramen="" class="photo">
-          <div class="menu-info" >
-            <div class="menu-title">
-              <h4>${menu[j].title}</h4>
-              <h4 class="price">${menu[j].price}</h4>
-            </div>
-            <div class="menu-text">
-            ${menu[j].desc} 
-            </div>
-          </div>
-        `
-      }
-      itemDOM.append(divDOM)
+      chinaFoods+=createFoods(item)
     }
-  
-  
+  })
+  itemDOM.innerHTML=chinaFoods
 }
 
-function ChinaItem()
-{
-  if(document.querySelector('.menu-items'))
-  {
-    itemSil()
-  }
+const japonFoods=()=>{
+  let japonFoods=""
   
-    for(let j=0;j<menu.length;j++)
+  menu.map(item =>{
+    if(item.category === "Japan")
     {
-      let divDOM=document.createElement('div')
-      if(menu[j].category == "China")
-      {
-        divDOM.className="menu-items col-lg-6 col-sm-12"
-        divDOM.innerHTML=`
-          <img src="${menu[j].img}" alt="Chicken" ramen="" class="photo">
-          <div class="menu-info" >
-            <div class="menu-title">
-              <h4>${menu[j].title}</h4>
-              <h4 class="price">${menu[j].price}</h4>
-            </div>
-            <div class="menu-text">
-            ${menu[j].desc} 
-            </div>
-          </div>
-        `
-      }
-      itemDOM.append(divDOM)
+      japonFoods+=createFoods(item)
     }
-  
+  })
+  itemDOM.innerHTML=japonFoods
 }
+
+
+
+//page uplod all item show
+document.addEventListener("DOMContentLoaded",allitem);
+//korea button click
+document.querySelector("#korea").addEventListener("click",koreaFoods);
+//china button click
+document.querySelector("#china").addEventListener("click",chinaFoods);
+//china button click
+document.querySelector("#japan").addEventListener("click",japonFoods);
+//All button click
+document.querySelector('#all').addEventListener("click",allitem)
+
+
